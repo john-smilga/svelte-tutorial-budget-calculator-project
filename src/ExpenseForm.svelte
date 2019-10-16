@@ -7,7 +7,7 @@
   export let editExpense;
   export let isEditing;
   export let hideForm;
-  $: console.log({ name, amount });
+  // $: console.log({ name, amount });
 
   function handleSubmit() {
     if (isEditing) {
@@ -43,7 +43,6 @@
       {#if isEditing}edit expense{:else}add expense{/if}
     </button>
     <button type="button" class="close-btn" on:click={hideForm}>
-
       <i class="fas fa-times" />
       close
     </button>
