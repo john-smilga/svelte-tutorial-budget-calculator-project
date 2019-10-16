@@ -7,7 +7,7 @@
   // data
   import expenseData from "./expenses";
   //  general imports
-  import { setContext } from "svelte";
+  import { setContext, onMount } from "svelte";
   // copy expenses
   let expenses = [...expenseData];
   // set editing variables
@@ -61,6 +61,10 @@
   function clearExpenses() {
     expenses = [];
   }
+  // lifecycle methods
+  onMount(() => {
+    console.log("hello world");
+  });
 </script>
 
 <Navbar title="Budget Calculator" {showForm} />
