@@ -48,6 +48,8 @@
     setId = expense.id;
     setName = expense.name;
     setAmount = expense.amount;
+    // showForm
+    showForm();
   }
   // editExpense
   function editExpense({ name, amount }) {
