@@ -1,4 +1,5 @@
 <script>
+  import { fade, fly } from "svelte/transition";
   export let id;
   export let name = "";
   export let amount = 0;
@@ -12,7 +13,8 @@
   const setModifiedExpense = getContext("modify");
 </script>
 
-<article class="single-expense">
+<!-- <article class="single-expense" transition:fade> -->
+<article class="single-expense" transition:fly={{ x: 200, duration: 2000 }}>
   <div class="expense-info">
     <h2>
       {name}
