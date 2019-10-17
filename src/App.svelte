@@ -16,7 +16,7 @@
   let setId = null;
   $: isEditing = setId ? true : false;
   // toggle form
-  let isFormOpen = true;
+  let isFormOpen = false;
   function showForm() {
     isFormOpen = true;
   }
@@ -47,6 +47,8 @@
     setId = expense.id;
     setName = expense.name;
     setAmount = expense.amount;
+    // showForm
+    showForm();
   }
   // editExpense
   function editExpense({ name, amount }) {
