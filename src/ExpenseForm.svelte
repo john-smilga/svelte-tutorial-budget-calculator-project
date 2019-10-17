@@ -1,4 +1,6 @@
 <script>
+  import { blur, fly } from "svelte/transition";
+
   import Title from "./SectionTitle.svelte";
 
   export let name = "";
@@ -7,7 +9,7 @@
   export let editExpense;
   export let isEditing;
   export let hideForm;
-  $: console.log({ name, amount });
+  // $: console.log({ name, amount });
 
   function handleSubmit() {
     if (isEditing) {
@@ -21,7 +23,10 @@
   $: isEmpty = !name || !amount;
 </script>
 
-<section class="form">
+<section
+  class="form"
+  in:fly={{ duration: 2000, y: 200 }}
+  out:blur={{ duration: 1000 }}>
   <Title title="add expense" />
   <form class="expense-form" on:submit|preventDefault={handleSubmit}>
     <div class="form-control">

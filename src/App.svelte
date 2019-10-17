@@ -7,7 +7,7 @@
   // data
   import expenseData from "./expenses";
   //  general imports
-  import { setContext, onMount, onDestroy } from "svelte";
+  import { setContext, onMount, onDestroy, afterUpdate } from "svelte";
   // copy expenses
   // let expenses = [...expenseData];
   let expenses = [];
@@ -17,7 +17,7 @@
   let setId = null;
   $: isEditing = setId ? true : false;
   // toggle form
-  let isFormOpen = true;
+  let isFormOpen = false;
   function showForm() {
     isFormOpen = true;
   }
@@ -30,7 +30,6 @@
   // remove expense
   function removeExpense(id) {
     expenses = expenses.filter(item => item.id !== id);
-    setLocalStorage();
   }
   setContext("remove", removeExpense);
   setContext("modify", setModifiedExpense);
@@ -42,7 +41,6 @@
   function addExpense({ name, amount }) {
     let expense = { id: Math.random(), name, amount };
     expenses = [expense, ...expenses];
-    setLocalStorage();
   }
   // setModifiedExpense
   function setModifiedExpense(id) {
@@ -59,12 +57,10 @@
     setId = null;
     setAmount = null;
     setName = "";
-    setLocalStorage();
   }
   // clear Expenses
   function clearExpenses() {
     expenses = [];
-    setLocalStorage();
   }
   function setLocalStorage() {
     localStorage.setItem("expenses", JSON.stringify(expenses));
@@ -74,8 +70,9 @@
       ? JSON.parse(localStorage.getItem("expenses"))
       : [];
   });
-  onDestroy(() => {
-    console.log("component unmounted");
+  afterUpdate(() => {
+    console.count("after update");
+    setLocalStorage();
   });
 </script>
 
