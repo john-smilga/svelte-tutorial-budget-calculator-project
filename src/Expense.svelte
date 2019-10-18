@@ -1,8 +1,9 @@
 <script>
-  import { fade, fly } from "svelte/transition";
+  import { scale, blur, fade, slide, fly } from "svelte/transition";
   export let id;
   export let name = "";
   export let amount = 0;
+  export let index;
   // export let removeExpense;
   let displayAmount = false;
   function toggleAmount() {
@@ -13,8 +14,13 @@
   const setModifiedExpense = getContext("modify");
 </script>
 
-<!-- <article class="single-expense" transition:fade> -->
-<article class="single-expense" transition:fly={{ x: 200, duration: 2000 }}>
+<!-- <article class="single-expense" transition:scale={{ duration: 2000 }}> -->
+<!-- <article class="single-expense" transition:blur={{ duration: 2000 }}> -->
+<!-- <article class="single-expense" transition:fade={{ duration: 2000 }}> -->
+<!-- <article class="single-expense" transition:fade={{ duration: 2000 }}> -->
+<!-- <article class="single-expense" transition:slide={{ duration: 2000 }}> -->
+<!-- <article class="single-expense" transition:fly={{ duration: 2000 }}> -->
+<article class="single-expense" transition:fly={{ x: 200, delay: index * 150 }}>
   <div class="expense-info">
     <h2>
       {name}

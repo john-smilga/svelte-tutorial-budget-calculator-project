@@ -4,6 +4,8 @@
   import ExpenseList from "./ExpenseList.svelte";
   import Totals from "./Totals.svelte";
   import ExpenseForm from "./ExpenseForm.svelte";
+  // modal
+  import Modal from "./Modal.svelte";
   // data
   import expenseData from "./expenses";
   //  general imports
@@ -81,13 +83,15 @@
 <Navbar title="Budget Calculator" {showForm} />
 <main class="content">
   {#if isFormOpen}
-    <ExpenseForm
-      name={setName}
-      amount={setAmount}
-      {addExpense}
-      {editExpense}
-      {isEditing}
-      {hideForm} />
+    <Modal>
+      <ExpenseForm
+        name={setName}
+        amount={setAmount}
+        {addExpense}
+        {editExpense}
+        {isEditing}
+        {hideForm} />
+    </Modal>
   {/if}
   <Totals title="total expenses" {total} />
   <ExpenseList {expenses} />

@@ -23,10 +23,7 @@
   $: isEmpty = !name || !amount;
 </script>
 
-<section
-  class="form"
-  in:fly={{ duration: 2000, y: 200 }}
-  out:blur={{ duration: 1000 }}>
+<section class="form">
   <Title title="add expense" />
   <form class="expense-form" on:submit|preventDefault={handleSubmit}>
     <div class="form-control">
