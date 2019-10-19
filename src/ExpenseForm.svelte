@@ -19,6 +19,8 @@
     }
     name = "";
     amount = null;
+    // hide form
+    hideForm();
   }
   $: isEmpty = !name || !amount;
 </script>

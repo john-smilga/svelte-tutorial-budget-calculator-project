@@ -1,5 +1,4 @@
 <script>
-  import { scale, blur, fade, slide, fly } from "svelte/transition";
   export let id;
   export let name = "";
   export let amount = 0;
@@ -20,7 +19,7 @@
 <!-- <article class="single-expense" transition:fade={{ duration: 2000 }}> -->
 <!-- <article class="single-expense" transition:slide={{ duration: 2000 }}> -->
 <!-- <article class="single-expense" transition:fly={{ duration: 2000 }}> -->
-<article class="single-expense" transition:fly={{ x: 200, delay: index * 150 }}>
+<article class="single-expense">
   <div class="expense-info">
     <h2>
       {name}

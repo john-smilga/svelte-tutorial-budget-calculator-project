@@ -4,6 +4,8 @@
   import ExpenseList from "./ExpenseList.svelte";
   import Totals from "./Totals.svelte";
   import ExpenseForm from "./ExpenseForm.svelte";
+  import GithubAwait from "./GithubAwait.svelte";
+
   // modal
   import Modal from "./Modal.svelte";
   // data
@@ -75,18 +77,19 @@
       : [];
   });
   afterUpdate(() => {
-    console.count("after update");
     setLocalStorage();
   });
+  $: console.log({ setName, setAmount });
 </script>
 
 <Navbar title="Budget Calculator" {showForm} />
 <main class="content">
+  <!-- <GithubAwait /> -->
   {#if isFormOpen}
     <Modal>
       <ExpenseForm
-        name={setName}
-        amount={setAmount}
+        bind:name={setName}
+        bind:amount={setAmount}
         {addExpense}
         {editExpense}
         {isEditing}
