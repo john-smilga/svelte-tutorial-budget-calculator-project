@@ -107,6 +107,7 @@ Buttons
   width: 100%;
   display: block;
   margin: 0 auto;
+  box-shadow: var(--lightShadow);
 }
 .disabled {
   color: var(--darkGrey);
@@ -297,6 +298,7 @@ Modal
   margin-top: 5rem;
   padding: 3rem;
   border-radius: var(--mainBorderRadius);
+  position: relative;
 }
 .modal-content .expense-form {
   box-shadow: none;
@@ -306,6 +308,13 @@ Modal
 }
 .modal-container .expense-form {
   padding: 1.25rem 0;
+}
+.modal-container .form {
+  position: static;
+}
+.modal-container .close-btn {
+  top: 2%;
+  right: 3%;
 }
 /* 
 ====== 
